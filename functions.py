@@ -29,7 +29,7 @@ def Michelson(image):
     
     return numerator/denominator
   
-  def RMS(image):
+def RMS(image):
     """
     RMS metric.
 
@@ -58,7 +58,7 @@ def Michelson(image):
     
     return np.sqrt(sum2/LM)
 
-  def HS(image):
+def HS(image):
     """
     Histogram spread metric.
 
@@ -100,7 +100,7 @@ def Michelson(image):
   # HAZINESS
   #################################################################################
   
-  def recortar_quadrado(image, size):
+def recortar_quadrado(image, size):
     """
     Pops a square (size, size) from the image.
     The square is in a random position in the image.
@@ -133,7 +133,7 @@ def Michelson(image):
 
     return cut
   
-  def histo_norm(image):
+def histo_norm(image):
     """
     Calculates the normalized histogram of an image.
     That is, the sum of all values is one. 
@@ -157,7 +157,7 @@ def Michelson(image):
     
     return histo
   
-  def haziness_abs_norm(image, size=None):
+def haziness_abs_norm(image, size=None):
     """
     Calculates the Haziness metric for the image.
     Cuts two squares in the image, one for the background (B) and 
@@ -202,7 +202,7 @@ def Michelson(image):
         zsoma = 1
     return sum(z)/zsoma
   
-  def haziness_mean_std(image, N, size):
+def haziness_mean_std(image, N, size):
     """
     This function runs N squares of the size 'size' in the image.
     Returns:
