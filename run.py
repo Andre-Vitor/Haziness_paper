@@ -13,13 +13,15 @@ import pandas as pd
 
 
 if __name__ == "__main__":
-    # N = int(input("Select number of iterations: "))
-    # s = int(input("Select the size of the patches: "))
+    N = int(input("Select number of iterations: "))
+    s = int(input("Select the size of the patches: "))
     
-    N = 10
-    s = 10
+    # N = 10
+    # s = 10
     
-    files =  glob.glob('Images\*') 
+    
+    
+    files =  glob.glob('Test_images\*') 
     if len(files) == 0:
         print("""
     The program couldn't identify the folder.

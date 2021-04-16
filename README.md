@@ -14,3 +14,4 @@ Size of patches = 2 pixels
 * Interface para escolher quais métricas retornar.
 * Escolher quais cores RGB ou escala de cinza.
 * Talvez printar o nome do arquivo também no excel
+* Selecionar a pasta, ao invés de ser somente a pasta Images fixa.
