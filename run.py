@@ -13,8 +13,11 @@ import pandas as pd
 
 
 if __name__ == "__main__":
-    N = int(input("Select number of iterations: "))
-    s = int(input("Select the size of the patches: "))
+    # N = int(input("Select number of iterations: "))
+    # s = int(input("Select the size of the patches: "))
+    
+    N = 10
+    s = 10
     
     files =  glob.glob('Images\*') 
     if len(files) == 0:
@@ -28,15 +31,17 @@ if __name__ == "__main__":
     
     values = []
     for file in files:
-        print(f'Calculating for {file}')
+        file2 = file.split("\\")[1]
+        print(f'Calculating for {file2}')
         file = cv.imread(file,0)
         x, y = haziness_mean_std(file, N, s)
-        values.append([round(x,4),round(y,4)])
+        values.append([file2, round(x,4),round(y,4)])
     # print(values)
     
     print('Done')
     DF = pd.DataFrame(values)
-    DF.to_csv("data.csv",index=False)
+    header = ["Name","Value","Std"]
+    DF.to_csv("data.csv",index=False,header=header)
 
 
 
