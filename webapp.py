@@ -12,6 +12,7 @@ import glob
 from functions import *
 import pandas as pd
 import os
+from PIL import Image, ImageOps
 
 
 st.title('Haziness')
@@ -28,11 +29,16 @@ calc_Michelson = st.checkbox('Michelson')
 calc_Rizzi = st.checkbox('Rizzi')
 calc_HS = st.checkbox('Histogram Spread')
 
+rms_list = []
+Weber_list = []
+Michelson_list = []
+Rizzi_list = []
+HS_list = []
+
 N = st.number_input("Select number of iterations: ",min_value=1, step=1)
 s = st.number_input("Select the size of the patches: ",min_value=1, step=1)
 
 # import libraries
-import streamlit as st
 import tkinter as tk
 from tkinter import filedialog
 
@@ -66,7 +72,7 @@ Please check if the name of the folder is 'Images'.
 And it is not empty.
           """)
 
-from PIL import Image, ImageOps
+
 # st.image(multiple_files[0],use_column_width='auto')
 values = []
 for file in multiple_files:
@@ -79,8 +85,26 @@ for file in multiple_files:
     img = np.asarray(img)
     x, y = haziness_mean_std(img, N, s)
     values.append([file.name, round(x, 4), round(y, 4)])
+    
+    
+    # Calculate other metrics
+    if calc_rms:
+        rms_list.append(rms(img))
+    if calc_Weber:
+        Weber_list.append(Weber(img))
+    if calc_Michelson:
+        Michelson_list.append(Michelson(img))
+    if calc_Rizzi:
+        Rizzi_list.append(Rizzi(img))
+    if calc_HS:
+        HS_list.append(HS(img))
 st.write(values)
 DF = pd.DataFrame(values,columns=["Name", "Value", "Std"])
+
+
+
+
+
 st.write(DF)
 # st.write(files)
 # if agree:
