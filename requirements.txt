@@ -2,5 +2,5 @@ streamlit
 numpy
 glob2
 pandas
-opencv-contrib-python
+opencv-python-headless
 Pillow
