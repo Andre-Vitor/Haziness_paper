@@ -1,6 +1,6 @@
-streamlit==0.75.0
-numpy==1.18.5
-glob2==0.7
-pandas==1.0.5
-opencv-python==4.4.0.44
-Pillow>=8.1.1
+streamlit
+numpy
+glob2
+pandas
+opencv-python
+Pillow
