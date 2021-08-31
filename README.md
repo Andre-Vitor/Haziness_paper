@@ -9,4 +9,6 @@ Number of iterations = 10.000
 
 Size of patches = 2 pixels
 
-
+## Link
+Link for the heroku app:
+https://haziness.herokuapp.com/
